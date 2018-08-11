@@ -19,12 +19,16 @@ def isBalanced(s):
             stack.append(s[i])
         elif s[i] == '[' :
             stack.append(s[i])
+        elif len(stack) == 0:
+            return "NO"
         elif s[i] == ')' and stack[-1] == '(':
             stack.pop()
         elif s[i] == '}' and stack[-1] == '{':
             stack.pop()
         elif s[i] == ']' and stack[-1] == '[':
             stack.pop()
+        else:
+            return "NO"
         
     if len(stack) == 0:
         return('YES')
